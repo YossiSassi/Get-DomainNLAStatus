@@ -1,4 +1,5 @@
 # Get-DomainNLAStatus
+# Comments to yossis@cyberartsecurity.com
 [cmdletbinding()]
 param (
     [Boolean]$PingHostBeforeQuery = $true,
