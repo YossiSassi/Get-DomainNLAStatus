@@ -1,5 +1,7 @@
 # Get-DomainNLAStatus
 # Comments to yossi@cyberartsecurity.com
+
+# Checks for NLA Settings in Remote Computers - defaults to WinXP/7/Vista/2003/2008*, pings machine first. can be changed to checking all RDP SPNs (e.g. Windows 10/2012*/2016 opened with 3389).
 [cmdletbinding()]
 param (
     [Boolean]$PingHostBeforeQuery = $true,
@@ -59,9 +61,6 @@ switch ($AllOSVersions)
             Write-Host "[!] Found $($Computers.Count) winXP/Vista/7/2003/2008 Enabled Computer Account(s) with RDP SPNs." -BackgroundColor Green -ForegroundColor White
         }
     }
-
-#(gwmi win32_service -ComputerName lon-cl1 | ? name -eq "RemoteREgistry").stopservice()
-#Set-Service "RemoteRegistry" -ComputerName lon-cl1 -StartupType Manual
 
 $CurrentEAP = $ErrorActionPreference;
 $Erroraction = "Stop";
